@@ -29,7 +29,7 @@ jobs:
         echo "${{ secrets.SSHKEY }}" > prod-cn-website.pem
         chmod 600 prod-cn-website.pem
         
-        ssh -o StrictHostKeyChecking=no -i "prod-cn-website.pem" ubuntu@ec2-13-200-2-193.ap-south-1.compute.amazonaws.com << 'EOF'
+        ssh -o StrictHostKeyChecking=no -i "my-instance.pem" ubuntu@ec2-13-222-3-13.compute-1.amazonaws.com << 'EOF'
           docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" -p "${{ secrets.DOCKERHUB_PASSWORD }}"
 
           # Stop and remove the existing container
